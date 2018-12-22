@@ -5,8 +5,8 @@ The application is started on the Tomcat port 8080.
 
 http://localhost:8080/oauth/token
 
-Now, add the Request Headers as follows −
-Authorization − Basic Auth with your Client Id and Client secret.
+Now, add the Request Headers as follows − <br>
+Authorization − Basic <base64-encoded (client-id:client-secret)> <br>
 Content Type − application/x-www-form-urlencoded
 
 Now, add the Request Parameters as follows −
