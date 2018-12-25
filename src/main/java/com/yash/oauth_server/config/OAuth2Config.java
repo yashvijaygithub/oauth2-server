@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
-    private String clientid = "client-id";
-    private String clientSecret = "client-secret";
+    private String clientid = "yash-client";
+    private String clientSecret = "yash-secret";
     private String privateKey = "private key";
     private String publicKey = "public key";
 
@@ -47,7 +47,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient(clientid).secret(clientSecret).scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token", "client_credentials")
-                .accessTokenValiditySeconds(20000)
-                .refreshTokenValiditySeconds(20000);
+                .accessTokenValiditySeconds(60*60*12) //12 hours
+                .refreshTokenValiditySeconds(60*60*24*30); //30 days
     }
 }
